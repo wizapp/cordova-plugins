@@ -9,14 +9,14 @@
     <description>Cordova WKWebView Engine with HTTP Server Plugin</description>
     <license>Apache 2.0</license>
     <keywords>cordova,wkwebview,webview</keywords>
-    <repo>https://git-wip-us.apache.org/repos/asf/cordova-plugins.git</repo>
+    <repo>https://github.com/wizapp/cordova-plugins.git</repo>
 
 	<engines>
         <engine name="cordova-ios" version=">=4.1.0" />
         <engine name="apple-ios" version=">=8.0" />
 	</engines>
 
-    <dependency id="cordova-labs-local-webserver" url="git+https://github.com/apache/cordova-plugins.git#local-webserver" version=">=2.3.1" />
+    <dependency id="cordova-labs-local-webserver" url="git+https://github.com/wizapp/cordova-plugins.git#local-webserver" version=">=2.3.1" />
     <dependency id="cordova-plugin-wkwebview-engine" version=">=1.0.1" />
 
     <!-- ios -->
