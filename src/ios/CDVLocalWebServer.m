@@ -43,7 +43,6 @@
     BOOL useLocalWebServer = NO;
     BOOL requirementsOK = NO;
     NSString* indexPage = @"index.html";
-    NSString* appBasePath = @"www";
     NSUInteger port = 80;
 
     // check the content tag src
@@ -84,7 +83,7 @@
     [GCDWebServer setLogLevel:kGCDWebServerLoggingLevel_Error];
 
     if (useLocalWebServer) {
-        [self addAppFileSystemHandler:authToken basePath:[NSString stringWithFormat:@"/%@/", appBasePath] indexPage:indexPage];
+        [self addAppFileSystemHandler:authToken basePath:@"/" indexPage:indexPage];
 
         // add after server is started to get the true port
         [self addFileSystemHandlers:authToken];
@@ -94,7 +93,7 @@
         [self.server startWithPort:port bonjourName:nil];
 
         // Update the startPage (supported in cordova-ios 3.7.0, see https://issues.apache.org/jira/browse/CB-7857)
-		vc.startPage = [NSString stringWithFormat:@"http://localhost:%lu/%@/%@?%@", (unsigned long)self.server.port, appBasePath, indexPage, authToken];
+		vc.startPage = [NSString stringWithFormat:@"http://localhost:%lu/%@?%@", (unsigned long)self.server.port, indexPage, authToken];
 
     } else {
         if (requirementsOK) {
