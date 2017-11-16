@@ -93,8 +93,7 @@
         [self.server startWithPort:port bonjourName:nil];
 
         // Update the startPage (supported in cordova-ios 3.7.0, see https://issues.apache.org/jira/browse/CB-7857)
-		vc.startPage = [NSString stringWithFormat:@"http://localhost:%lu/%@?%@", (unsigned long)self.server.port, indexPage, authToken];
-
+        vc.startPage = [NSString stringWithFormat:@"http://localhost:%lu/?%@", (unsigned long)self.server.port, authToken];
     } else {
         if (requirementsOK) {
             NSString* error = [NSString stringWithFormat:@"WARNING: CordovaLocalWebServer: <content> tag src is not http://localhost[:port] (is %@).", vc.startPage];
@@ -269,6 +268,7 @@
                     NSString* indexType = [[[NSFileManager defaultManager] attributesOfItemAtPath:indexPath error:NULL] fileType];
                     if ([indexType isEqualToString:NSFileTypeRegular]) {
                         complete([GCDWebServerFileResponse responseWithFile:indexPath]);
+                        return;
                     }
                 }
                 response = [self.server _responseWithContentsOfDirectory:filePath];
