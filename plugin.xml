@@ -23,9 +23,6 @@
     <keywords>cordova,local web server</keywords>
     <repo>https://github.com/wizapp/cordova-plugins.git#local-webserver</repo>
 
-    <hook type="after_plugin_install" src="scripts/after_install.js" />
-    <hook type="before_plugin_uninstall" src="scripts/before_uninstall.js" />
-
     <dependency id="cordova-plugin-file" url="https://github.com/wizapp/cordova-plugin-file.git" version=">=1.3.4" />
 
     <engines>
